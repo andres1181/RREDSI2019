@@ -10,12 +10,8 @@
         android:id="@+id/btn_consultar"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginBottom="32dp"
         android:background="#B90101"
         android:onClick="buscar"
         android:text="Consultar"
@@ -23,7 +19,6 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/btn_google"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,19 +26,13 @@
         android:id="@+id/btn_google"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginBottom="352dp"
+        android:layout_marginBottom="313dp"
         android:background="@android:color/darker_gray"
+        android:onClick="iniciar_google"
         android:text="Iniciar sesión con Google"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_consultar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
