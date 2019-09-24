@@ -7,175 +7,225 @@
     tools:context=".Lista_Datos">
 
     <TextView
-        android:id="@+id/txt_autor"
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginBottom="13dp"
-        android:text="Autores: "
-        app:layout_constraintBottom_toTopOf="@+id/view_autor1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_ies"
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginBottom="273dp"
-        android:text="Institución educativa: "
-        app:layout_constraintBottom_toTopOf="@+id/btn_maps"
-        app:layout_constraintStart_toStartOf="@+id/view_autor2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_nodo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:text="Nodo: "
-        app:layout_constraintBottom_toTopOf="@+id/txt_semillero"
-        app:layout_constraintStart_toStartOf="@+id/txt_institucion"
-        app:layout_constraintTop_toBottomOf="@+id/txt_institucion"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_semillero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:text="Semillero: "
-        app:layout_constraintBottom_toTopOf="@+id/txt_titulo"
-        app:layout_constraintStart_toStartOf="@+id/txt_nodo"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nodo"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_codigo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:text="Código: "
-        app:layout_constraintBottom_toTopOf="@+id/txt_ubicacion"
-        app:layout_constraintStart_toStartOf="@+id/view_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/view_titulo"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_ubicacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Ubicación:"
-        app:layout_constraintBottom_toTopOf="@+id/view_ubicacion"
-        app:layout_constraintStart_toStartOf="@+id/txt_codigo"
-        app:layout_constraintTop_toBottomOf="@+id/txt_codigo"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_hora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="121dp"
-        android:text="Hora:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btn_maps"
-        app:layout_constraintTop_toBottomOf="@+id/btn_maps"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:text="Título:"
-        app:layout_constraintBottom_toTopOf="@+id/view_titulo"
-        app:layout_constraintStart_toStartOf="@+id/txt_semillero"
-        app:layout_constraintTop_toBottomOf="@+id/txt_semillero"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="121dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_ies"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:text="Autores:"
+        android:textSize="14sp"
+        app:autoSizeTextType="uniform"
+        app:fontFamily="casual"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[0]" />
-
-    <Button
-        android:id="@+id/btn_maps"
-        android:layout_width="157dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginLeft="47dp"
-        android:layout_marginBottom="16dp"
-        android:text="Ver en Maps"
-        app:layout_constraintBottom_toTopOf="@+id/txt_hora"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_ubicacion"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/txt_institucion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_nodo"
-        app:layout_constraintEnd_toStartOf="@+id/txt_ies"
-        app:layout_constraintStart_toStartOf="@+id/txt_ies"
-        app:layout_constraintTop_toBottomOf="@+id/view_autor2"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/view_autor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/view_autor2"
-        app:layout_constraintEnd_toStartOf="@+id/txt_autor"
-        app:layout_constraintStart_toStartOf="@+id/txt_autor"
-        app:layout_constraintTop_toBottomOf="@+id/txt_autor"
-        tools:visibility="visible" />
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="12dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/view_autor2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_institucion"
-        app:layout_constraintEnd_toStartOf="@+id/view_autor1"
-        app:layout_constraintStart_toStartOf="@+id/view_autor1"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="12dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_autor1" />
 
     <TextView
-        android:id="@+id/view_ubicacion"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_maps"
-        app:layout_constraintEnd_toStartOf="@+id/txt_ubicacion"
-        app:layout_constraintStart_toStartOf="@+id/txt_ubicacion"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Titulo:"
+        app:fontFamily="casual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_autor2" />
 
     <TextView
         android:id="@+id/view_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_codigo"
-        app:layout_constraintEnd_toStartOf="@+id/txt_titulo"
-        app:layout_constraintStart_toStartOf="@+id/txt_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/txt_titulo" />
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="250"
+        android:textSize="15sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Código:"
+        app:fontFamily="casual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_titulo" />
+
+    <TextView
+        android:id="@+id/view_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:maxLength="250"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView23"
+        app:layout_constraintStart_toEndOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Semillero:"
+        app:fontFamily="casual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/view_semillero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Institución educativa:"
+        app:fontFamily="casual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_semillero" />
+
+    <TextView
+        android:id="@+id/view_ies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Hora:"
+        app:fontFamily="casual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_ies" />
+
+    <TextView
+        android:id="@+id/view_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:maxLength="250"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Ubicación:"
+        app:fontFamily="casual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/view_ubi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <Button
+        android:id="@+id/btn_regresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="15dp"
+        android:text="Regresar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_ubi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:text="Ver en Maps"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_regresar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_regresar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
