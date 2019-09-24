@@ -121,7 +121,7 @@ public class Panel_Consulta extends AppCompatActivity {
     }
 
 
-    //Sebuscan los datos en el JSON generado en la funcion getAgenda
+    //Sebuscan los datos en el JSON generado en la funcion getAgenda()
     public void buscarDatos(){
         validarDatos();
         for(Agenda_ agenda : listAgenda.get_Agenda()){
