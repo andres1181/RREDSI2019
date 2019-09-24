@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RREDSI2019</string>
+    <string name="tipo_de_proyecto">Tipo de proyecto</string>
 </resources>

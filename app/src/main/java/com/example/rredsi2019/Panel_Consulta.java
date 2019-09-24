@@ -14,6 +14,9 @@ import android.widget.RadioGroup;
 import com.example.rredsi2019.Interface.RredsiApi;
 import com.example.rredsi2019.Model.Agenda;
 import com.example.rredsi2019.Model.Agenda_;
+import com.example.rredsi2019.Model.Autores;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +39,7 @@ public class Panel_Consulta extends AppCompatActivity {
     private String dataP[];
     Agenda listAgenda;
     String horita;
-
+    ArrayList<String> autoresList = new ArrayList<String>();
 
 
     @SuppressLint("WrongViewCast")
@@ -50,7 +53,7 @@ public class Panel_Consulta extends AppCompatActivity {
         radioButtonEnTerminado = findViewById(R.id.radio_terminado);
         radio_Button_En_Curso = findViewById(R.id.radio_curso);
 
-        dataP = new String[6];
+        dataP = new String[7];
 
         listAgenda = new Agenda();
 
@@ -127,9 +130,9 @@ public class Panel_Consulta extends AppCompatActivity {
         for(Agenda_ agenda : listAgenda.get_Agenda()){
             if (agenda.getTrabajo().getTitulo().equals(getTitulo)&&agenda.getTrabajo().getSede().equals(getIes)&&agenda.getTrabajo().getTipo().equals(getTipo)) {
 
-
                 //
                 dataP[0]=agenda.getHora();
+
 
                 dataP[1]=agenda.getCampus();
                 dataP[2]=agenda.getEspacio();
@@ -138,6 +141,13 @@ public class Panel_Consulta extends AppCompatActivity {
                 dataP[4]= agenda.getTrabajo().getSemillero();
 
                 dataP[5]= agenda.getTrabajo().getSede();
+                dataP[6]= String.valueOf(agenda.getTrabajo().getIdTrabajo());
+
+
+                for(Autores autores : agenda.getAutores()){
+                    String persona = autores.getNombres() + " " + autores.getApellidos();
+                    autoresList.add(persona);
+                }
 
 
                 System.out.println("ToDo BiEn");
@@ -158,10 +168,15 @@ public class Panel_Consulta extends AppCompatActivity {
 
     public void validarConsulta(View view) {
         buscarDatos();
+
+
         System.out.println("Horirita" + dataP[0]);
         System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
 
         Intent intent = new Intent(this, Lista_Datos.class);
+
+        intent.putExtra("autor1", autoresList.get(0));
+        intent.putExtra("autor2", autoresList.get(2));
 
         System.out.println("Hora:" + dataP[0]);
         intent.putExtra("hora", dataP[0]);
@@ -177,6 +192,9 @@ public class Panel_Consulta extends AppCompatActivity {
 
         System.out.println("institucion:" + dataP[5]);
         intent.putExtra("institucion", dataP[5] );
+
+        System.out.println("Codigo:" + dataP[6]);
+        intent.putExtra("codigo", dataP[6] );
 
 
         startActivity(intent);
