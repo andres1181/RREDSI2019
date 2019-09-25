@@ -118,6 +118,9 @@ public class Panel_Consulta extends AppCompatActivity {
     public void buscarDatos(){
         validarDatos();
 
+        getIes = getIes.toUpperCase();
+        getTitulo = getTitulo.toUpperCase();
+
         String nombreJson;
         String institucionJson;
         for(Agenda_ agenda : listAgenda.get_Agenda()){
@@ -128,8 +131,7 @@ public class Panel_Consulta extends AppCompatActivity {
             institucionJson = agenda.getTrabajo().getSede();
             institucionJson = institucionJson.toUpperCase();
 
-            getIes = getIes.toUpperCase();
-            getTitulo = getTitulo.toUpperCase();
+
 
             if (nombreJson.equals(getTitulo)&&institucionJson.equals(getIes)&&agenda.getTrabajo().getTipo().equals(getTipo)) {
 
@@ -160,13 +162,7 @@ public class Panel_Consulta extends AppCompatActivity {
                 existen = false;
             }
         }
-        System.out.println(dataP[0]);
-        System.out.println(dataP[1]);
-        System.out.println(dataP[2]);
-        System.out.println(dataP[3]);
-        System.out.println(dataP[4]);
-        System.out.println(dataP[5]);
-        System.out.println("Unas Personitas: " + autoresList);
+
     }
 
     public void mostrarDialogo(){
@@ -186,9 +182,6 @@ public class Panel_Consulta extends AppCompatActivity {
         buscarDatos();
 
         if((!ies.getText().toString().isEmpty()||!name_proyect.getText().toString().isEmpty())&&existen){
-
-            System.out.println("Horirita" + dataP[0]);
-            System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
 
             Intent intent = new Intent(this, Lista_Datos.class);
 
