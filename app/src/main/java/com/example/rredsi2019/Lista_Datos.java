@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TabWidget;
@@ -32,6 +33,7 @@ public class Lista_Datos extends AppCompatActivity {
         horaT = findViewById(id.view_hora);
         ubiT = findViewById(id.view_ubi);
         tituloT = findViewById(id.view_titulo);
+        tituloT.setMovementMethod(new ScrollingMovementMethod());
         semT = findViewById(id.view_semillero);
         iesT = findViewById(id.view_ies);
         autor1T = findViewById(id.view_autor1);
@@ -80,5 +82,11 @@ public class Lista_Datos extends AppCompatActivity {
 
 
 
+    }
+
+    public void regresar(View view) {
+        Intent intent = new Intent(getApplicationContext(), Panel_Consulta.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

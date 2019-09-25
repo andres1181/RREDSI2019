@@ -1,8 +1,10 @@
 package com.example.rredsi2019;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,8 +39,8 @@ public class Panel_Consulta extends AppCompatActivity {
     private String getIes;
     private String getTipo;
     private String dataP[];
+    private boolean existen;
     Agenda listAgenda;
-    String horita;
     ArrayList<String> autoresList = new ArrayList<String>();
 
 
@@ -55,22 +57,14 @@ public class Panel_Consulta extends AppCompatActivity {
 
         dataP = new String[7];
 
+        existen = false;
+
         listAgenda = new Agenda();
 
         ies = findViewById(R.id.input_ies);
         name_proyect = findViewById(R.id.input_name_project);
 
         getAgenda();
-
-  //      titulo = findViewById(R.id.view_titulo);
-  //      autor1 = findViewById(R.id.view_titulo);
-  //      autor2 = findViewById(R.id.view_autor2);
-  //      nodo = findViewById(R.id.view_nodo);
-  //      semillero = findViewById(R.id.view_semillero);
-        //ies = findViewById(R.id.view_ies);
-  //      hora = findViewById(R.id.view_hora);
-  //      ubicacion = findViewById(R.id.view_ubi);
-
     }
 
     public void validarDatos(){
@@ -106,10 +100,7 @@ public class Panel_Consulta extends AppCompatActivity {
                     Log.d("Código: ", "  " + response.code());
                     return;
                 }
-                System.out.println("onResponse");
-                System.out.println(response.body().toString());
                 listAgenda = response.body();
-                System.out.println(listAgenda.get_Agenda());
             }
 
             @Override
@@ -120,15 +111,27 @@ public class Panel_Consulta extends AppCompatActivity {
             }
         });
 
-        System.out.println("Horirita" + horita);
     }
 
 
     //Sebuscan los datos en el JSON generado en la funcion getAgenda()
     public void buscarDatos(){
         validarDatos();
+
+        String nombreJson;
+        String institucionJson;
         for(Agenda_ agenda : listAgenda.get_Agenda()){
-            if (agenda.getTrabajo().getTitulo().equals(getTitulo)&&agenda.getTrabajo().getSede().equals(getIes)&&agenda.getTrabajo().getTipo().equals(getTipo)) {
+
+            nombreJson = agenda.getTrabajo().getTitulo();
+            nombreJson = nombreJson.toUpperCase();
+
+            institucionJson = agenda.getTrabajo().getSede();
+            institucionJson = institucionJson.toUpperCase();
+
+            getIes = getIes.toUpperCase();
+            getTitulo = getTitulo.toUpperCase();
+
+            if (nombreJson.equals(getTitulo)&&institucionJson.equals(getIes)&&agenda.getTrabajo().getTipo().equals(getTipo)) {
 
                 //
                 dataP[0]=agenda.getHora();
@@ -146,58 +149,81 @@ public class Panel_Consulta extends AppCompatActivity {
 
                 for(Autores autores : agenda.getAutores()){
                     String persona = autores.getNombres() + " " + autores.getApellidos();
+                    System.out.println("Una Personita: " + persona);
                     autoresList.add(persona);
                 }
 
+                existen = true;
 
-                System.out.println("ToDo BiEn");
-
-            }else if (!agenda.getTrabajo().getTitulo().equals(getTitulo)||!agenda.getTrabajo().getSede().equals(getIes)||!agenda.getTrabajo().getTipo().equals(getTipo)) {
+            }else if (!nombreJson.equals(getTitulo)&&!institucionJson.equals(getIes)&&!agenda.getTrabajo().getTipo().equals(getTipo)) {
                 System.out.println("Errorcito: No coinciden los datos");
+                existen = false;
             }
         }
         System.out.println(dataP[0]);
-        System.out.println(horita);
         System.out.println(dataP[1]);
         System.out.println(dataP[2]);
         System.out.println(dataP[3]);
         System.out.println(dataP[4]);
         System.out.println(dataP[5]);
+        System.out.println("Unas Personitas: " + autoresList);
     }
 
+    public void mostrarDialogo(){
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("Importante");
+        dialogo1.setMessage("Verifique que los datos ingresados sean correctos");
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                dialogo1.dismiss();;
+            }
+        });
+        dialogo1.show();
+    }
 
     public void validarConsulta(View view) {
         buscarDatos();
 
+        if((!ies.getText().toString().isEmpty()||!name_proyect.getText().toString().isEmpty())&&existen){
 
-        System.out.println("Horirita" + dataP[0]);
-        System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
+            System.out.println("Horirita" + dataP[0]);
+            System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
 
-        Intent intent = new Intent(this, Lista_Datos.class);
+            Intent intent = new Intent(this, Lista_Datos.class);
 
-        intent.putExtra("autor1", autoresList.get(0));
-        intent.putExtra("autor2", autoresList.get(2));
+            intent.putExtra("autor1", autoresList.get(0));
+            intent.putExtra("autor2", autoresList.get(1));
 
-        System.out.println("Hora:" + dataP[0]);
-        intent.putExtra("hora", dataP[0]);
+            System.out.println("Hora:" + dataP[0]);
+            intent.putExtra("hora", dataP[0]);
 
-        System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
-        intent.putExtra("ubicacion", "Campus " + dataP[1] + " - " + dataP[2]);
+            System.out.println("Ubicacion:" + dataP[1] + " - " + dataP[2]);
+            intent.putExtra("ubicacion", "Campus " + dataP[1] + " - " + dataP[2]);
 
-        System.out.println("Titulo:" + dataP[3]);
-        intent.putExtra("titulo",  dataP[3]);
+            System.out.println("Titulo:" + dataP[3]);
+            intent.putExtra("titulo",  dataP[3]);
 
-        System.out.println("Semillero:" + dataP[4]);
-        intent.putExtra("semillero", dataP[4]);
+            System.out.println("Semillero:" + dataP[4]);
+            intent.putExtra("semillero", dataP[4]);
 
-        System.out.println("institucion:" + dataP[5]);
-        intent.putExtra("institucion", dataP[5] );
+            System.out.println("institucion:" + dataP[5]);
+            intent.putExtra("institucion", dataP[5] );
 
-        System.out.println("Codigo:" + dataP[6]);
-        intent.putExtra("codigo", dataP[6] );
+            System.out.println("Codigo:" + dataP[6]);
+            intent.putExtra("codigo", dataP[6] );
+
+            startActivity(intent);
+
+        }else{
+            mostrarDialogo();
+
+        }
 
 
-        startActivity(intent);
+
+
+
 
     }
 }
